@@ -102,11 +102,12 @@ jmp l1
 n2:
 cmp ah,4Bh
 jne n3
+
+
+cmp x1,0
+je reset
 dec x1
 dec x2
-
-cmp x1,1
-jb reset
 call clear
 jmp l1
 reset: ; if the x-axis of the shape becomes lower than the initial point then reset it
@@ -114,8 +115,6 @@ reset: ; if the x-axis of the shape becomes lower than the initial point then re
   mov x2,5
   call clear
   jmp l1
-
-
 n3: ; for pausing the game
 cmp ah,19h
 jne n4
